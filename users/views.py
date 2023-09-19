@@ -63,9 +63,8 @@ def registrationPage(request):
             app_notifications.send_email(request)
             
             return redirect('login/')
-                                
-    context = {'form': form}
-    return render(request, 'register.html', context)
+
+    return render(request, 'register.html', {'error': form.errors})
    
    
 def logout_view(request):
