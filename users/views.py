@@ -17,6 +17,7 @@ from .forms import CreateUserForm
 from django import forms
 from .utilities import app_notifications
 
+
 def loginPage(request):
     if request.user.is_authenticated:
         return redirect('/')
@@ -29,7 +30,7 @@ def loginPage(request):
                 login(request, user)
                 # Redirect to a success page.
                 messages.success(request, _('Successfull logged in'))
-                return redirect('/')
+                return redirect('/dashboard.html')
             else:
                 # Return an 'invalid login' error message.
                 messages.info(request, _('Please, fill form'))
