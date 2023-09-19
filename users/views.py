@@ -33,7 +33,6 @@ def loginPage(request):
             else:
                 # Return an 'invalid login' error message.
                 messages.info(request, _('Please, fill form'))
-        
     
     return render(request, 'login.html')
     
@@ -42,13 +41,13 @@ def loginPage(request):
 def Dashboard(request):
     username = request.user
     context={'user': username}
+
     return render(request, 'dsh.html', context)    
 
 
 def registrationPage(request):
     form = CreateUserForm()
-    
-    
+        
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
         if form.is_valid():
@@ -58,14 +57,12 @@ def registrationPage(request):
             app_notifications.send_email(request)
             
             return redirect('login.html')
-                
-                
+                                
     context = {'form': form}
     return render(request, 'register.html', context)
    
    
 def logout_view(request):
     logout(request)
-    
-    
+        
     return render(request,'logout.html')    
