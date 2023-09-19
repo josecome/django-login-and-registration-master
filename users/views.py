@@ -30,7 +30,7 @@ def loginPage(request):
                 login(request, user)
                 # Redirect to a success page.
                 messages.success(request, _('Successfull logged in'))
-                return redirect('/dashboard.html')
+                return redirect('/dashboard')
             else:
                 # Return an 'invalid login' error message.
                 messages.info(request, _('Please, fill form'))
@@ -62,7 +62,7 @@ def registrationPage(request):
             messages.sucess(request, 'Account was sucessfully created for ' + user)      
             app_notifications.send_email(request)
             
-            return redirect('login.html')
+            return redirect('login/')
                                 
     context = {'form': form}
     return render(request, 'register.html', context)
