@@ -35,14 +35,19 @@ def loginPage(request):
                 messages.info(request, _('Please, fill form'))
     
     return render(request, 'login.html')
-    
+
+
+def Home(request):
+
+    return render(request, 'home.html')    
+
 
 @login_required(login_url='login.html')    
 def Dashboard(request):
     username = request.user
     context={'user': username}
 
-    return render(request, 'dsh.html', context)    
+    return render(request, 'dashboard.html', context)    
 
 
 def registrationPage(request):
