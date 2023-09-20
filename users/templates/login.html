@@ -5,20 +5,10 @@
         #login_div {
             width: 400px;
         }
+        .pd {
+            padding-top: 20px;
+        }
     </style>
-    <div style="float: top; width: 100%;">
-        {% if messages %}
-            {% for message in messages %}
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    {{ message }}
-                    <button type="button"
-                            class="btn-close"
-                            data-bs-dismiss="alert"
-                            aria-label="Close"></button>
-                </div>
-            {% endfor %}
-        {% endif %}
-    </div>
     <div id="login_div"
          class="container d-flex align-items-center justify-content-center">
         <form action="/login/" method="POST">
@@ -39,7 +29,10 @@
                 <input type="checkbox" class="form-check-input" id="Check1">
                 <label class="form-check-label" for="Check1">Check me out</label>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Submit</button><br />
+            <div class="mb-3 pd">
+                No account? <a href="/register">Sign up!</a>
+            </div>            
         </form>
     </div>
 {% endblock content %}

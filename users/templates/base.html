@@ -71,20 +71,6 @@
                 -webkit-overflow-scrolling: touch;
             }
         </style>
-        <script>
-            function setDataInForm(ctgry, descrip, image_link, txt_id) {
-                var txtId = document.getElementById("txtid");
-                var txtCategory = document.getElementById("category");
-                var txtDescription = document.getElementById("description");
-                var txtImageLink = document.getElementById("image_link");
-                var tid = document.getElementById("tid");
-                txtCategory.value = ctgry;
-                txtDescription.value = descrip;
-                txtImageLink.value = image_link;
-                txtId.value = txt_id;
-                tid.innerHTML = txt_id;
-            }
-        </script>
     </head>
     <body>
         {% load static %}

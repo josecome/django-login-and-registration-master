@@ -33,7 +33,7 @@ def loginPage(request):
                 return redirect('/dashboard')
             else:
                 # Return an 'invalid login' error message.
-                messages.info(request, _('Please, fill form'))
+                messages.info(request, _('Incorrect Username or Password!'))
     
     return render(request, 'login.html')
 
@@ -59,12 +59,12 @@ def registrationPage(request):
         if form.is_valid():
             form.save()
             user = form.cleaned_data.get('username')
-            messages.sucess(request, 'Account was sucessfully created for ' + user)      
-            app_notifications.send_email(request)
-            
-            return redirect('login/')
-
-    return render(request, 'register.html', {'error': form.errors})
+            messages.success(request, 'Account was sucessfully created for ' + user)      
+            # app_notifications.send_email(request)
+            return redirect('/login')
+        
+    messages.info(request, form.errors)
+    return render(request, 'register.html')
    
    
 def logout_view(request):
